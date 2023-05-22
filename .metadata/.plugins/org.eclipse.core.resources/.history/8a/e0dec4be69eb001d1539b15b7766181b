@@ -1,0 +1,14 @@
+package com.sample.java.develop;
+
+public class StringTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String test="My string test";
+		String[] vlaues =test.split(" ");
+		int length=vlaues.length;
+		System.out.println(length);
+
+	}
+
+}

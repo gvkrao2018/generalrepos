@@ -1,0 +1,5 @@
+package com.customer.microservice.citizenservice.entity;
+
+public class IDStringGenerator {
+
+}

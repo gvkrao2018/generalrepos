@@ -1,0 +1,5 @@
+package com.customer.microservice.citizenservice.controller;
+
+public class CitizenController {
+
+}

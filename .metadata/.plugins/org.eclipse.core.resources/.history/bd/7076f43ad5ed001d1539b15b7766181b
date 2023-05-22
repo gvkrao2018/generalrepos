@@ -1,0 +1,9 @@
+package com.customer.repo;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.customer.model.ProductEntity;
+
+public interface ProductRepo extends CrudRepository<ProductEntity, Long> {
+
+}

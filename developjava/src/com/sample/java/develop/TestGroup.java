@@ -1,0 +1,29 @@
+package com.sample.java.develop;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class TestGroup {
+
+	public static void main(String[] args) {
+		List<Integer> values2 = null;
+	// values2.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.toList()));
+	 
+		List<Integer> values= new ArrayList<>(Arrays.asList(40, 32, 80, 30, 90, 81, 15));
+		List<Integer> values1= new ArrayList<>(Arrays.asList(45, 34, 80, 30));
+		//values.stream().filter(i->i%2==0).collect(Collectors.toList()).forEach(System.out::println);
+        values.addAll(values1);
+	//	values.stream().distinct().collect(Collectors.toList()).forEach(System.out::println);
+		//values.stream().map().collect(Collectors.toList()).forEach(System.out::println);
+		values.retainAll(values1);
+		values.stream().forEach(System.out::println);
+		//values
+	
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.sample.java.develop;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.*;
+
+public class TestsValues {
+
+	List<Integer> values= new ArrayList<>(Arrays.asList(40, 32, 80, 30, 90, 15, 81));
+	
+	//selling price and buying price
+	values.
+	
+	
+}

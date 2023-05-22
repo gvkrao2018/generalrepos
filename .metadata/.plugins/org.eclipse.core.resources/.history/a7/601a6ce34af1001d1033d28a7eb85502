@@ -1,0 +1,17 @@
+package com.customer.microservice.citizenservice.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.customer.microservice.citizenservice.entity.Citizen;
+
+public interface CitizenRepo extends JpaRepository<Citizen, String> {
+	
+	@Query(value = "select * from citizendb.citizen where vacination_center_id=?1", nativeQuery = true)
+	List<Citizen> findByVacinationCenterId(String vacinationCenterId);
+		
+		
+
+}

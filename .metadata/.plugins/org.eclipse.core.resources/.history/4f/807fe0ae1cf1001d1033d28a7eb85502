@@ -1,0 +1,10 @@
+package com.customer.microservice.VaccinationCenter.repo;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.customer.microservice.VaccinationCenter.entity.VaccinationCenter;
+
+public interface VaccineCenterRepo extends JpaRepository<VaccinationCenter, Integer>{
+
+public VaccinationCenter findByVaccineCenterId(String vaccineCenterId);
+}

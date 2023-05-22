@@ -1,0 +1,26 @@
+package com.sample.java.develop;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		String myStr= " Welcome to my world to work in this world and to get the salary";
+		
+	List<Integer> intValues= new ArrayList<>(Arrays.asList(1,3,4,2,8,5,6,10,9,11));
+	intValues.stream().limit(5).sorted().collect(Collectors.toList()).forEach(System.out::println);
+	intValues.stream().skip(5).sorted().collect(Collectors.toList()).forEach(System.out::println);
+	
+	System.out.println(intValues.stream().mapToDouble(x->x).summaryStatistics().getMax());
+	List<String> strValues= new ArrayList<>(Arrays.asList(myStr.split(" ")));
+	Arrays.asList(myStr.split(" ")).stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting())).entrySet().forEach(System.out::println);
+	//strValues.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting())).entrySet().forEach(System.out::println);
+	
+	}
+
+}

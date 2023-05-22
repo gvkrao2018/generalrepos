@@ -1,0 +1,56 @@
+package com.customer.microservice.citizenservice.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.customer.microservice.citizenservice.entity.Citizen;
+import com.customer.microservice.citizenservice.repositories.CitizenRepo;
+
+@RestController
+@RequestMapping("/citizen")
+public class CitizenController {
+	
+	@Autowired
+	CitizenRepo citizenRepo;
+
+	@GetMapping("/intial-test")
+	public ResponseEntity<String> initialTest(){
+		
+		return new ResponseEntity<>("Init Test",HttpStatus.OK);
+		
+	}
+	
+	@GetMapping("/citizens-by-vcenter/{id}")
+	public ResponseEntity<List<Citizen>> citizensByVCId(@PathVariable Integer id) {
+
+		List<Citizen> citizens = new ArrayList<>();
+
+		citizens = citizenRepo.findByvacinationCenterId(id);
+
+		if (null != citizens && citizens.size() > 0) {
+
+			return new ResponseEntity<>(citizens, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(citizens, HttpStatus.NO_CONTENT);
+		}
+	}
+	
+	@GetMapping("/add-citizen")
+	public ResponseEntity<Citizen> addCitizen(@RequestBody Citizen newCitizen) {
+
+		Citizen citizen = citizenRepo.save(newCitizen);
+		return new ResponseEntity<>(citizen,HttpStatus.CREATED);
+	}
+
+		
+		
+}

@@ -1,0 +1,21 @@
+package com.customer.model;
+
+import org.hibernate.annotations.Columns;
+import org.springframework.data.annotation.Id;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
+
+
+@Entity
+
+public class CustomerEntity {
+
+	@Id
+	private int customerId;
+	
+	@Column
+	private String customerName;
+	
+}

@@ -1,0 +1,19 @@
+package com.customer.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.customer.constants.ProductConstants;
+
+@RestController
+public class ProductController {
+	
+	@PostMapping("/general/product/save")
+	public ResponseEntity<String> createProduct(){
+		
+		
+		return new ResponseEntity(ProductConstants.)
+	}
+
+}

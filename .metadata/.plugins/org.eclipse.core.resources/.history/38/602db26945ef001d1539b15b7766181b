@@ -1,0 +1,37 @@
+package com.grp.develop.services.security;
+
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
+
+@EnableWebSecurity
+public class UserSecurityConfigurator  {
+
+	
+	public SecurityFilterChain filterSecurity(HttpSecurity secure) throws Exception {
+		secure.cors()
+		.and().csrf().disable().exceptionHandling()
+		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		.and().authorizeRequests().anyRequest().permitAll()
+		.anyRequest().authenticated();
+		
+		secure.authenticationProvider(authenticationProvider());
+		
+		return null;
+		
+	}
+	
+	@Bean
+	  public DaoAuthenticationProvider authenticationProvider() {
+	      DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+	       
+	      authProvider.setUserDetailsService(null);
+	      authProvider.setPasswordEncoder(passwordEncoder());
+	   
+	      return authProvider;
+	  }
+	
+}

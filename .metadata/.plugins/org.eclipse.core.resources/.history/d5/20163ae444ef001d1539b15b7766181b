@@ -1,0 +1,18 @@
+package com.grp.develop.services.security;
+
+import org.springframework.security.config.annotation.SecurityBuilder;
+import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
+
+@EnableWebSecurity
+public class UserSecurityConfigurator extends  {
+
+	
+	@Override
+	public void configure(SecurityBuilder<UserSecurityConfigurator> builder) throws Exception {
+		builder.
+		super.configure(builder);
+	}
+	
+}

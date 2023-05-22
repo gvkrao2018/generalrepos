@@ -1,0 +1,44 @@
+package com.customer.microservice.citizenservice.entity;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import org.hibernate.engine.spi.SharedSessionContractImplementor;
+import org.hibernate.id.IdentityGenerator;
+import org.hibernate.jdbc.Work;
+
+public class IDStringGenerator extends IdentityGenerator {
+
+	String generatedId = null;
+
+	@Override
+	public String generate(SharedSessionContractImplementor s, Object obj) {
+
+		String prefix = "DEP";
+
+		s.doWork(new Work() {
+			public void execute(Connection connection) throws SQLException {
+				try {
+					Statement statement = connection.createStatement();
+
+					ResultSet rs = statement.executeQuery("select count(Department_Id) as Id from demo.Department");
+
+					if (rs.next()) {
+						int id = rs.getInt(1) + 101;
+						generatedId = prefix + new Integer(id).toString();
+						System.out.println("Generated Id: " + generatedId);
+
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+
+		return generatedId;
+	}
+
+}

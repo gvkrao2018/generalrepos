@@ -1,0 +1,16 @@
+package com.customer.microservice.VaccinationCenter.model;
+
+import com.customer.microservice.VaccinationCenter.entity.VaccinationCenter;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class VaccineCenterAndCitizenDetails {
+	private Citizen citizen;
+	private VaccinationCenter vaccinationCenter;
+
+}

@@ -1,0 +1,5 @@
+package com.customer.microservice.Kafkaserver.service;
+
+public class Consumer {
+
+}

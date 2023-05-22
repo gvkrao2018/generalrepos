@@ -1,0 +1,32 @@
+package com.customer.repo;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Order;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.customer.model.CustomerEntity;
+
+
+public interface CustomerRepository extends JpaRepository<CustomerEntity,Long>{
+
+	 Optional<CustomerEntity> findById(Long id);
+	
+	@Override
+	default List<CustomerEntity> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+    @Override
+    default List<CustomerEntity> findAll(Sort sort) {
+    	CustomerEntity [] customersArr = null;
+    List<Order> customers=sort.descending().toList();
+    List<CustomerEntity> customersOrdered=Arrays.asList(customers.toArray(customersArr));
+    	return customersOrdered;
+    }
+}

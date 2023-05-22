@@ -1,0 +1,8 @@
+package com.customer.microservice.VaccinationCenter.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class VaccinationCenterController {
+
+}
